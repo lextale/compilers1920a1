@@ -14,9 +14,12 @@ transitions = {
 	# Για λεπτομέρειες δείτε στο:
 	# http://mixstef.github.io/courses/compilers/lecturedoc/unit1/module1.html#id7
 	
-	's0':
-
-     	      } 
+	's0':{'DIGIT':'s1', '.':'s3'},
+	's1':{'0':'s1', 'DIGIT':'s1', '.':'s2'},
+	's2':{'0':'s2', 'DIGIT':'s2'},
+	's3':{'0':'s4', 'DIGIT':'s4'},
+	's4':{'0':'s4', 'DIGIT':'s4'}
+	} 
 
 
 accepts = { 
@@ -26,7 +29,8 @@ accepts = {
 	# Για λεπτομέρειες δείτε στο:
 	# http://mixstef.github.io/courses/compilers/lecturedoc/unit1/module1.html#id8
 	
-	's2':'FLOAT_TOKEN' 
+	's2':'FLOAT_TOKEN'
+	's3':'FLOAT_TOKEN'
 
      	  }
 
@@ -44,7 +48,7 @@ def get_char(text,pos):
 	# Για λεπτομέρειες δείτε στο:
 	# http://mixstef.github.io/courses/compilers/lecturedoc/unit1/module1.html#id11
 	
-	if c>='0' and c<='9':
+	if c>'0' and c<='9':
 		return 'DIGIT'
 	
 	return c
