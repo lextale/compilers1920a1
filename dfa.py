@@ -14,11 +14,14 @@ transitions = {
 	# Για λεπτομέρειες δείτε στο:
 	# http://mixstef.github.io/courses/compilers/lecturedoc/unit1/module1.html#id7
 	
-	's0':{'DIGIT':'s1', '.':'s3'},
+	's0':{'DIGIT':'s1', '.':'s3', '0':'s5'},
 	's1':{'0':'s1', 'DIGIT':'s1', '.':'s2'},
 	's2':{'0':'s2', 'DIGIT':'s2'},
 	's3':{'0':'s4', 'DIGIT':'s4'},
-	's4':{'0':'s4', 'DIGIT':'s4'}
+	's4':{'0':'s4', 'DIGIT':'s4'},
+	's5':{'.':'s6'},
+	's6':{'0':'s7', 'DIGIT':'s7'},
+	's7':{'0':'s7', 'DIGIT':'s7'}
 	} 
 
 
@@ -29,8 +32,9 @@ accepts = {
 	# Για λεπτομέρειες δείτε στο:
 	# http://mixstef.github.io/courses/compilers/lecturedoc/unit1/module1.html#id8
 	
-	's2':'FLOAT_TOKEN'
-	's3':'FLOAT_TOKEN'
+	's2':'FLOAT_TOKEN',
+	's4':'FLOAT_TOKEN',
+	's7':'FLOAT_TOKEN'
 
      	  }
 
